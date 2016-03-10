@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JLabel;
 /**
  *
  * @author mgonzalezlorenzo
@@ -15,11 +16,10 @@ public class Combate {
     
     Pokedex obj = new Pokedex();
     Sonido mus = new Sonido();
+    PokemonAlphaTest vent = new PokemonAlphaTest();
     
     
-    public void playMusic(){
-        mus.music();
-    }
+    
     
     public void elegir(){
         
@@ -34,8 +34,8 @@ public class Combate {
         boolean fin=false;
         
         do{
+            mus.music();
         opcion=Integer.parseInt(JOptionPane.showInputDialog("Que debe hacer "+obj.pokemon1.getNombre()+" ? \n 1. "+(obj.pokemon1.getMov1().getNomMov())+" \n 2. "+(obj.pokemon1.getMov2().getNomMov())));
-        
         switch(opcion){
             case 1 : vida2=vida2-obj.pokemon1.getMov1().getDano() ; obj.pokemon2.setVida(vida2); System.out.println(obj.pokemon1.getNombre()+" uso "+obj.pokemon1.getMov1().getNomMov());
                 break;
