@@ -14,6 +14,12 @@ import javax.swing.JOptionPane;
 public class Combate {
     
     Pokedex obj = new Pokedex();
+    Sonido mus = new Sonido();
+    
+    
+    public void playMusic(){
+        mus.music();
+    }
     
     public void elegir(){
         
