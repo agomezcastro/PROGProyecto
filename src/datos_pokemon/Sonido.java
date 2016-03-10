@@ -13,7 +13,7 @@ public class Sonido {
     
     public void music(){
         try {
-        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Vs. Trainer.wav").getAbsoluteFile());
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/home/local/DANIELCASTELAO/agomezcastro/NetBeansProjects/PROGProyecto/src/Trainer.wav").getAbsoluteFile());
         Clip clip = AudioSystem.getClip();
         clip.open(audioInputStream);
         clip.start();
