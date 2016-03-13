@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JLabel;
 /**
  *
  * @author mgonzalezlorenzo
@@ -18,12 +17,8 @@ public class Combate {
     Sonido mus = new Sonido();
     
     
-    public void playMusic(){
-        mus.music();
-    }
-    
     public void elegir(){
-        
+        mus.music();
         obj.iniciar();
         obj.elegir();
     }
@@ -60,6 +55,8 @@ public class Combate {
             
             
             if(vida1<=0 && vida2>0){
+                mus.victoryMusic();
+                
                 JOptionPane.showMessageDialog(null, "Victoria para Jugador 2 con su "+obj.pokemon2.getNombre());
                 
                 try{
@@ -81,6 +78,7 @@ public class Combate {
                 
             }
             else if(vida2<=0 && vida1>0){
+                mus.victoryMusic();
                 
                 JOptionPane.showMessageDialog(null, "Victoria para Jugador 1 con su "+obj.pokemon1.getNombre());
                 

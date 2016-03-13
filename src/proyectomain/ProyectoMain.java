@@ -12,6 +12,7 @@ public class ProyectoMain {
         Combate sd = new Combate();
         sd.elegir();
         sd.combatir();
+        
     }
     
 }
