@@ -1,14 +1,7 @@
 package datos_pokemon;
 
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +11,7 @@ import javax.swing.JOptionPane;
 public class Pokedex {
     ArrayList <Pokemon> lista = new ArrayList();
     public Pokemon pokemon1,pokemon2;
+    Sonido poke =new Sonido();
     
     
     public void iniciar(){
@@ -44,54 +38,19 @@ public class Pokedex {
             
             switch(opcion){
                 case 1 : pokemon1=lista.get(0); JOptionPane.showMessageDialog(null, "Adelante Charmander !!!!!!!!");
-                try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Charmander.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                System.out.println("Error with playing sound.");
-    }
+                poke.sonidoCharmander();
                     break;
                 case 2 : pokemon1=lista.get(1); JOptionPane.showMessageDialog(null, "Adelante Squirtle !!!!!!!!");
-                try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Squirtle.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                System.out.println("Error with playing sound.");
-    }
+                poke.sonidoSquirtle();
                     break;
                 case 3 : pokemon1=lista.get(2); JOptionPane.showMessageDialog(null, "Adelante Bulbasaur !!!!!!!!");
-                try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Bulbasaur.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                System.out.println("Error with playing sound.");
-    }
+                poke.sonidoBulbasaur();
                     break;
                 case 4 : pokemon1=lista.get(3); JOptionPane.showMessageDialog(null, "Adelante Pidgey !!!!!!!!");
-                try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Pidgey.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                System.out.println("Error with playing sound.");
-    }
+                poke.sonidoPidgey();
                     break;
                 case 5 : pokemon1=lista.get(4); JOptionPane.showMessageDialog(null, "Adelante Rattata !!!!!!!!");
-                try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Rattata.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                System.out.println("Error with playing sound.");
-    }
+                poke.sonidoRattata();
                     break;
             }
             
@@ -100,54 +59,19 @@ public class Pokedex {
             
             switch(opcion2){
                 case 1 : pokemon2=lista.get(0); JOptionPane.showMessageDialog(null, "Adelante Charmander !!!!!!!!");
-                try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Charmander.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                System.out.println("Error with playing sound.");
-    }
+                poke.sonidoCharmander();
                     break;
                 case 2 : pokemon2=lista.get(1); JOptionPane.showMessageDialog(null, "Adelante Squirtle !!!!!!!!");
-                try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Squirtle.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                System.out.println("Error with playing sound.");
-    }
+                poke.sonidoSquirtle();
                     break;
                 case 3 : pokemon2=lista.get(2); JOptionPane.showMessageDialog(null, "Adelante Bulbasaur !!!!!!!!");
-                try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Bulbasaur.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                System.out.println("Error with playing sound.");
-    }
+                poke.sonidoBulbasaur();
                     break;
                 case 4 : pokemon2=lista.get(3); JOptionPane.showMessageDialog(null, "Adelante Pidgey !!!!!!!!");
-                try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Pidgey.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                System.out.println("Error with playing sound.");
-    }
+                poke.sonidoPidgey();
                     break;
                 case 5 : pokemon2=lista.get(4); JOptionPane.showMessageDialog(null, "Adelante Rattata !!!!!!!!");
-                try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Rattata.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-                System.out.println("Error with playing sound.");
-    }
+                poke.sonidoRattata();
                     break;
                 
             }

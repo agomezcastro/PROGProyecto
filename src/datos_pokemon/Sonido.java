@@ -25,7 +25,61 @@ public class Sonido {
     }
     }
     
-    public void victoryMusic(){
+    public void sonidoCharmander(){
+        try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Charmander.wav").getAbsoluteFile());
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                System.out.println("Error with playing sound.");
+    }
+    }
+    
+    public void sonidoSquirtle(){
+        try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Squirtle.wav").getAbsoluteFile());
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                System.out.println("Error with playing sound.");
+    }
+    }
+    
+    public void sonidoBulbasaur(){
+        try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Bulbasaur.wav").getAbsoluteFile());
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                System.out.println("Error with playing sound.");
+    }
+    }
+    
+    public void sonidoPidgey(){
+        try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Pidgey.wav").getAbsoluteFile());
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                System.out.println("Error with playing sound.");
+    }
+    }
+    
+    public void sonidoRattata(){
+        try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/Rattata.wav").getAbsoluteFile());
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                System.out.println("Error with playing sound.");
+    }
+    }
+    /*public void victoryMusic(){
         try {
              AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sonidos/VictoryTrainer.wav").getAbsoluteFile());
              Clip clip = AudioSystem.getClip();
@@ -34,5 +88,5 @@ public class Sonido {
        }catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
              System.out.println("Error with playing sound.");
        }
-    }
+    }*/
 }

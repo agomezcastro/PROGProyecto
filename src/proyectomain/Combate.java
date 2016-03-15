@@ -55,7 +55,6 @@ public class Combate {
             
             
             if(vida1<=0 && vida2>0){
-                mus.victoryMusic();
                 
                 JOptionPane.showMessageDialog(null, "Victoria para Jugador 2 con su "+obj.pokemon2.getNombre());
                 
@@ -78,7 +77,6 @@ public class Combate {
                 
             }
             else if(vida2<=0 && vida1>0){
-                mus.victoryMusic();
                 
                 JOptionPane.showMessageDialog(null, "Victoria para Jugador 1 con su "+obj.pokemon1.getNombre());
                 
