@@ -85,7 +85,7 @@ public class Combate {
                     fw = new FileWriter("historial.txt",true);
                     esc = new PrintWriter(fw);
                     esc.append("\n");
-                    esc.append("Gano el Jugador 2 con "+obj.pokemon1.getNombre());
+                    esc.append("Gano el Jugador 1 con "+obj.pokemon1.getNombre());
                 } catch (IOException ex) {
                     Logger.getLogger(Combate.class.getName()).log(Level.SEVERE, null, ex);
                 }
