@@ -3,7 +3,7 @@ package proyectomain;
 import datos_pokemon.*;
 /**
  *
- * @author mgonzalezlorenzo
+ * @author mgonzalezlorenzo & agomezcastro
  */
 public class ProyectoMain {
 

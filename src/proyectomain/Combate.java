@@ -9,12 +9,15 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
- * @author mgonzalezlorenzo
+ * @author mgonzalezlorenzo & agomezcastro
  */
 public class Combate {
-    
+    public String tipomov, tiporival;
     Pokedex obj = new Pokedex();
     Sonido mus = new Sonido();
+    Tipos efect= new Tipos();
+    Movimientos mov = new Movimientos();
+    Pokemon pok = new Pokemon();
     
     
     public void elegir(){
@@ -31,23 +34,59 @@ public class Combate {
         
         do{
         opcion=Integer.parseInt(JOptionPane.showInputDialog("Que debe hacer "+obj.pokemon1.getNombre()+" ? \n 1. "+(obj.pokemon1.getMov1().getNomMov())+" \n 2. "+(obj.pokemon1.getMov2().getNomMov())));
+        
+        
+        
+        
+        
         switch(opcion){
-            case 1 : vida2=vida2-obj.pokemon1.getMov1().getDano() ; obj.pokemon2.setVida(vida2); System.out.println(obj.pokemon1.getNombre()+" uso "+obj.pokemon1.getMov1().getNomMov());
+            
+            case 1 : 
+                tipomov=obj.pokemon1.getMov1().getTipmov().getNomTip();
+                tiporival=obj.pokemon2.getTippok().getNomTip();
+                int mult1=efectividad();
+                
+                vida2=vida2-obj.pokemon1.getMov1().getDano()*mult1 ; 
+                obj.pokemon2.setVida(vida2); 
+                System.out.println(obj.pokemon1.getNombre()+" uso "+obj.pokemon1.getMov1().getNomMov());
                 break;
-            case 2: vida2=vida2-obj.pokemon1.getMov2().getDano() ; obj.pokemon2.setVida(vida2); System.out.println(obj.pokemon1.getNombre()+" uso "+obj.pokemon1.getMov2().getNomMov());
+                
+            case 2:  
+                tipomov=obj.pokemon1.getMov2().getTipmov().getNomTip();
+                tiporival=obj.pokemon2.getTippok().getNomTip();
+                int mult2=efectividad();
+                
+                vida2=vida2-obj.pokemon1.getMov2().getDano()*mult2 ; 
+                obj.pokemon2.setVida(vida2); 
+                System.out.println(obj.pokemon1.getNombre()+" uso "+obj.pokemon1.getMov2().getNomMov());
                 break;
         }
                
         opcion=Integer.parseInt(JOptionPane.showInputDialog("Que debe hacer "+obj.pokemon2.getNombre()+" ? \n 1. "+(obj.pokemon2.getMov1().getNomMov())+"\n 2. "+(obj.pokemon2.getMov2().getNomMov())));
         switch(opcion){
-            case 1 : vida1=vida1-obj.pokemon2.getMov1().getDano() ; obj.pokemon1.setVida(vida1); System.out.println(obj.pokemon2.getNombre()+" uso "+obj.pokemon2.getMov1().getNomMov());
+            case 1 : 
+                tipomov=obj.pokemon2.getMov1().getTipmov().getNomTip();
+                tiporival=obj.pokemon1.getTippok().getNomTip();
+                int mult1=efectividad();
+                
+                
+                vida1=vida1-obj.pokemon2.getMov1().getDano()*mult1 ; 
+                obj.pokemon1.setVida(vida1); 
+                System.out.println(obj.pokemon2.getNombre()+" uso "+obj.pokemon2.getMov1().getNomMov());
                 break;
-            case 2: vida1=vida1-obj.pokemon2.getMov2().getDano() ; obj.pokemon1.setVida(vida1); System.out.println(obj.pokemon2.getNombre()+" uso "+obj.pokemon2.getMov2().getNomMov());
+            case 2:
+                tipomov=obj.pokemon2.getMov2().getTipmov().getNomTip();
+                tiporival=obj.pokemon1.getTippok().getNomTip();
+                int mult2=efectividad();
+                
+                
+                vida1=vida1-obj.pokemon2.getMov2().getDano()*mult2 ; 
+                obj.pokemon1.setVida(vida1); 
+                System.out.println(obj.pokemon2.getNombre()+" uso "+obj.pokemon2.getMov2().getNomMov());
                 break;
         }
         
-        //System.out.println(obj.pokemon1.getNombre()+" :"+obj.pokemon1.getVida()+" ----------- "+obj.pokemon2.getNombre()+" :"+obj.pokemon2.getVida())
-        JOptionPane.showMessageDialog(null, (obj.pokemon1.getNombre()+" :"+obj.pokemon1.getVida()+" ----------- "+obj.pokemon2.getNombre()+" :"+obj.pokemon2.getVida()));
+        System.out.println(obj.pokemon1.getNombre()+" tiene :"+obj.pokemon1.getVida()+" PV"+" ----------- "+obj.pokemon2.getNombre()+" tiene :"+obj.pokemon2.getVida()+" PV");
         
         if(vida1<=0 | vida2<=0){
             fin=true;
@@ -56,7 +95,6 @@ public class Combate {
             
             
             if(vida1<=0 && vida2>0){
-                
                 JOptionPane.showMessageDialog(null, "Victoria para Jugador 2 con su "+obj.pokemon2.getNombre());
                 
                 try{
@@ -85,7 +123,7 @@ public class Combate {
                     fw = new FileWriter("historial.txt",true);
                     esc = new PrintWriter(fw);
                     esc.append("\n");
-                    esc.append("Gano el Jugador 1 con "+obj.pokemon1.getNombre());
+                    esc.append("Gano el Jugador 2 con "+obj.pokemon1.getNombre());
                 } catch (IOException ex) {
                     Logger.getLogger(Combate.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -121,6 +159,47 @@ public class Combate {
         
         }
         }while(fin==false);
+    }
+    public int efectividad(){
+        if(tipomov.equals("Fuego")){
+            if(tiporival.equals("Planta")){
+                efect.setMult(2);
+            }
+            else{
+                efect.setMult(1);
+            }
+        }
+        else if(tipomov.equals("Agua")){
+            if(tiporival.equals("Fuego")){
+                efect.setMult(2);
+            }
+            
+            else{
+                efect.setMult(1);
+            }
+        }
+        else if(tipomov.equals("Planta")){
+            if(tiporival.equals("Agua")){
+                efect.setMult(2);
+            }
+            else{
+                efect.setMult(1);
+            }
+        }
+        else if(tipomov.equals("Volador")){
+            if(tiporival.equals("Planta")){
+                efect.setMult(2);
+            }
+            else{
+                efect.setMult(1);
+            }
+        }
+        else{
+            efect.setMult(1);
+        }
+        
+        
+            return efect.getMult();
         }
     }
 

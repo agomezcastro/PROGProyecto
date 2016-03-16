@@ -10,7 +10,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  *
- * @author agomezcastro
+ * @author agomezcastro & mgonzalezlorenzo
  */
 public class Sonido {
     
